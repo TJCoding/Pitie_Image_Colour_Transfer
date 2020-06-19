@@ -1,6 +1,8 @@
 # Pitie_Image_Colour_Transfer
-An Implementation of Pitie's Colour Transfer Method based upon a Linear Monge-Kantorovich solution.
+============================================================
 
+##### An Implementation of Pitie's Colour Transfer Method  
+based upon a linear Monge-Kantorovich solution.
 
 
 Reference   
@@ -13,9 +15,11 @@ https://github.com/frcs/colour-transfer.
 It provides results which are comparable to, if not superior to, those provided by the 'Ruggedised Xiao' method.  
 (see https://github.com/TJCoding/Ruggedised-Image-Colour-Transfer)
 
+Further information is provided [here](Documents/Background%20Discussion.pdf) in the Documents folder.
 
 
 #  
 #  
 
 ![Composite of Flower Image: Inputs and Outputs](Documents/Images/Composite.jpg?raw=true)
+
