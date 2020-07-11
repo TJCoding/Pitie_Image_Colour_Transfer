@@ -76,25 +76,25 @@ cv::Mat LMK(cv::Mat imgs,cv::Mat imgt)
     // https://github.com/frcs/colour-transfer
     //
     // The eigenvector matrix as computed in
-    // OpenCv is the transpose of that in Matlab.
+    // OpenCV is the transpose of that in Matlab.
     //
     cv::eigen(cov_t, Da2, Ua);
     cv::sqrt(max(Da2,10^-20),Da2);
     Da=(cv::Mat_<double>(3,3)
                  <<  Da2.at<double>(0, 0),0,0,
-                     0,Da2.at<double>(0, 1),0,
-                     0,0,Da2.at<double>(0, 2));
+                     0,Da2.at<double>(1, 0),0,
+                     0,0,Da2.at<double>(2, 0));
     C=Da*Ua*cov_s*Ua.t()*Da;
     cv::eigen(C, Dc2, Uc);
     cv::sqrt(max(Dc2,10^-20),Dc2);
     Dc=(cv::Mat_<double>(3,3)
                  <<  Dc2.at<double>(0, 0),0,0,
-                     0,Dc2.at<double>(0, 1),0,
-                     0,0,Dc2.at<double>(0, 2));
+                     0,Dc2.at<double>(1, 0),0,
+                     0,0,Dc2.at<double>(2, 0));
     Da_inv=(cv::Mat_<double>(3,3)
                  <<  1.0/Da2.at<double>(0, 0),0,0,
-                     0,1.0/Da2.at<double>(0, 1),0,
-                     0,0,1.0/Da2.at<double>(0, 2));
+                     0,1.0/Da2.at<double>(1, 0),0,
+                     0,0,1.0/Da2.at<double>(2, 0));
     T=Ua.t()*Da_inv*Uc.t()*Dc*Uc*Da_inv*Ua;
 
 
