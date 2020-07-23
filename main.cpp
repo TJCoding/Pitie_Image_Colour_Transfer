@@ -31,8 +31,8 @@ int main()
     // where 'source image' provides the colour scheme that
     // is to be applied to 'target image'.
 
-    std::string targetname = "images/Flowers_target.jpg";
-    std::string sourcename = "images/Flowers_source.jpg";
+    std::string targetname = "images/scotland_house.jpg";
+    std::string sourcename = "images/scotland_plain.jpg";
 
 // ###########################################################################
 // ###########################################################################
@@ -67,9 +67,11 @@ cv::Mat LMK(cv::Mat imgs,cv::Mat imgt)
 	imgt.convertTo(imgt, CV_32FC3, 1/255.0);
 
     cv::calcCovarMatrix(imgt.reshape(1, imgt.cols * imgt.rows),
-                  cov_t, means_t, CV_COVAR_ROWS | CV_COVAR_NORMAL);
+                        cov_t, means_t, CV_COVAR_ROWS
+                        | CV_COVAR_NORMAL | CV_COVAR_SCALE);
     cv::calcCovarMatrix(imgs.reshape(1, imgs.cols * imgs.rows),
-                  cov_s, means_s, CV_COVAR_ROWS | CV_COVAR_NORMAL);
+                        cov_s, means_s, CV_COVAR_ROWS
+                        | CV_COVAR_NORMAL | CV_COVAR_SCALE);
 
     // The following is an implementation of Pitie's 'MLK' function
     // using the same notation.
